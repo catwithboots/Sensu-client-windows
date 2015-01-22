@@ -14,26 +14,26 @@ Installation
 
 The MSI will install a service called 'Sensu Client' and application into `%PROGRAMFILES%`. It provides a sample sensu-compatible json-based config file in the installation directory. Sensu-client.net will then log to `%PROGRAMDATA%\sensu-client.net\logs`.
 
-Download
-========
 
-Releases
-https://github.com/carllindelof/sensu-client/releases
+Getting the ruby embedded
+=========================
 
-Start running
-=============
+Download the embedded ruby from here:
+[http://dl.bintray.com/oneclick/rubyinstaller/ruby-1.9.3-p551-i386-mingw32.7z?direct](http://dl.bintray.com/oneclick/rubyinstaller/ruby-1.9.3-p551-i386-mingw32.7z?direct "ruby 1.9.3-p551")
+create a folder structure like: 
+> C:\opt\sensu\embedded
 
+and unzip the folder there (so you will eventually get this:
 
-1. You need to have Ruby version > 1.9 installed.
-2. You need to install sensu-plugin gem.
+> C:\opt\sensu\embedded\bin <br>
+> C:\opt\sensu\embedded\include<br>
+> C:\opt\sensu\embedded\lib<br>
+> C:\opt\sensu\embedded\share<br>
 
-`gem install sensu-plugin --no-rdoc --no-ri` 
- 
-In the tools directory there is a powershell script (Import-Certificate.ps1) to install the cert if your are running RabbitMQ with certificates
+inside the \bin folder with a command prompt do a
+> gem install sensu-plugin
 
-`
-Import-Certificate -CertFile "C:\pathtoyourcert\client_keycert.p12" -StoreNames My -LocalMachine -CurrentUser -CertPassword DemoPass -Verbose`
+then fork or download: [https://github.com/sensu/sensu-community-plugins](https://github.com/sensu/sensu-community-plugins)
+(you can do a "Download ZIP" from the URL) and put the plugins in C:\opt\sensu\plugins.
 
-Development
-===========
-You need to install WiX Toolset 3.8 is released with official support for Visual Studio 2013 editions. It is available for download from http://wixtoolset.org.
+Thats it for now...
