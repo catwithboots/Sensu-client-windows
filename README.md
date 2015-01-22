@@ -37,3 +37,18 @@ then fork or download: [https://github.com/sensu/sensu-community-plugins](https:
 (you can do a "Download ZIP" from the URL) and put the plugins in C:\opt\sensu\plugins.
 
 Thats it for now...update needs to come for the included embedded ruby and correct plugin path.
+
+SSL for RabbitMQ
+================
+
+Now we're assuming you already have your .pem files for RabbitMQ, convert your private key file into a .pfx file and put them (the private key and the certificate chain file) to:
+> C:\opt\sensu\etc\ssl
+
+Configuration files
+===================
+There are 2 files that need to be added (by hand or better by CM):
+
+1. config.json (in C:\Program Files (x86)\sensu-client)
+2. client.json (in C:\Program Files (x86)\sensu-client\conf.d)
+
+Number 1 needs to be edited so that the client can actually connect to rabbitmq, the client.json needs to be edited to make sure that it makes sense for sensu; "name" can for example be the hostname, address the IP address and subscriptions ...well you can guess ;-).
