@@ -36,4 +36,4 @@ inside the \bin folder with a command prompt do a
 then fork or download: [https://github.com/sensu/sensu-community-plugins](https://github.com/sensu/sensu-community-plugins)
 (you can do a "Download ZIP" from the URL) and put the plugins in C:\opt\sensu\plugins.
 
-Thats it for now...
+Thats it for now...update needs to come for the included embedded ruby and correct plugin path.
