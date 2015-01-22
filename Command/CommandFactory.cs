@@ -196,11 +196,11 @@ namespace sensu_client.Command
 
             private static string RubyExePath()
             {
-                //var defaultSensuClientPath = @"c:\opt\sensu\embedded\bin";
-                //if (File.Exists(string.Format("{0}\\ruby.exe", defaultSensuClientPath)))
-                //{
-                //    return string.Format("{0}\\ruby.exe", defaultSensuClientPath);
-                //}
+                var defaultSensuClientPath = @"c:\opt\sensu\embedded\bin";
+                if (File.Exists(string.Format("{0}\\ruby.exe", defaultSensuClientPath)))
+                {
+                    return string.Format("{0}\\ruby.exe", defaultSensuClientPath);
+                }
 
                 return "ruby.exe";
             }

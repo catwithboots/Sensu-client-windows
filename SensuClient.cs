@@ -41,7 +41,7 @@ namespace sensu_client
                 Log.Info("Sensu-client configuration loaded!");
                 //Start Keepalive thread
                 _keepalivethread.Start();
-                Log.Info("Sensu-client KeeAliveScheduler started!");
+                Log.Info("Sensu-client KeepAliveScheduler started!");
                 //Start subscriptions thread.
                 _subscriptionsthread.Start();
                 Log.Info("Sensu-client Subscription started!");

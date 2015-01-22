@@ -23,7 +23,7 @@ namespace sensu_client
         private const int KeepAliveTimeout = 20000;
         private readonly ManualResetEvent _stopEvent = new ManualResetEvent(false);
         private static readonly List<string> ChecksInProgress = new List<string>();
-
+        string Timestamp = CreateTimeStamp().ToString();
         private readonly ISensuClientConfigurationReader _sensuClientConfigurationReader;
         private readonly ISensuRabbitMqConnectionFactory _sensuRabbitMqConnectionFactory;
         private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings { Formatting = Formatting.None };
@@ -88,7 +88,8 @@ namespace sensu_client
             else
             {
                 ch = connection.CreateModel();
-                var q = ch.QueueDeclare("", false, false, true, null);
+                string clientname = _sensuClientConfigurationReader.SensuClientConfig.Client.Name;
+                var q = ch.QueueDeclare(clientname+"-"+Timestamp, false, false, true, null);
                 foreach (var subscription in _sensuClientConfigurationReader.SensuClientConfig.Client.Subscriptions)
                 {
                     Log.Debug("Binding queue {0} to exchange {1}", q.QueueName, subscription);
@@ -104,7 +105,7 @@ namespace sensu_client
                 consumer = new QueueingBasicConsumer(ch);
                 try
                 {
-                    ch.BasicConsume(q.QueueName, true, consumer);
+                    ch.BasicConsume(q.QueueName, true, clientname + "-" + Timestamp, consumer);
                 }
                 catch (Exception)
                 {

@@ -1,8 +1,8 @@
 ﻿{
   "client": {
-    "name": "demo-computer",
-    "address": "10.8.16.8",
-    "subscriptions": ["windows","windowschecks"],
-	"safemode": false,
+    "name": "BTO-Laptop",
+    "address": "192.168.178.18",
+    "subscriptions": ["all"],
+	"safemode": false
   }
 }

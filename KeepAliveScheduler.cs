@@ -65,8 +65,9 @@ namespace sensu_client
                     //Valid channel. Good to publish.
                     var payload = JObject.Parse(clientJson);
                     payload["timestamp"] = CreateTimeStamp();
-                    payload["plugins"] = "";
+                    //payload["plugins"] = "";
                     Log.Debug("Publishing keepalive");
+                    Log.Debug("Payload is " + payload);
                     var properties = new BasicProperties
                         {
                             ContentType = "application/octet-stream",
