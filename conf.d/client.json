@@ -1,7 +1,7 @@
 ﻿{
   "client": {
-    "name": "BTO-Laptop",
-    "address": "192.168.178.18",
+    "name": "CLIENT-NAME",
+    "address": "192.168.178.1",
     "subscriptions": ["all"],
 	"safemode": false
   }
